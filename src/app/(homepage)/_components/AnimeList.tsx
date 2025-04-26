@@ -3,6 +3,7 @@
 import { getAnimeList } from '@/lib/api/anime'
 import { useQuery } from '@tanstack/react-query'
 import { AnimeList } from '@/lib/schema/anime'
+import AnimeCard from './AnimeCard'
 
 type Props = {
   initialData: AnimeList | null
@@ -39,10 +40,14 @@ function HomeAnimeList({ initialData }: Props) {
   }
 
   return (
-    <ul>
+    <ul className='grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6'>
       {animeList.data.map((anime) => (
-        <li className='flex flex-col' key={anime.mal_id}>
-          <h2>{anime.title}</h2>
+        <li key={anime.mal_id}>
+          <AnimeCard
+            id={anime.mal_id}
+            title={anime.title}
+            thumbnails={anime.images}
+          />
         </li>
       ))}
     </ul>

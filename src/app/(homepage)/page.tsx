@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <main className='min-h-screen'>
       <BaseContainer className='py-8'>
-        <h1 className='text-3xl font-bold text-foreground'>Anime List</h1>
+        <h1 className='text-3xl font-bold text-foreground mb-8'>Anime List</h1>
         <AnimeList initialData={animeList}></AnimeList>
       </BaseContainer>
     </main>
