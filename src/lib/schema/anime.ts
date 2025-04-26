@@ -50,4 +50,5 @@ export const animeListSchema = z.object({
   }),
 })
 
+export type ImageSizes = z.infer<typeof animeSchema>['images']
 export type AnimeList = z.infer<typeof animeListSchema>
