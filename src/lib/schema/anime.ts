@@ -16,6 +16,7 @@ export const animeSchema = z.object({
     embed_url: z.string().nullable(),
   }),
   title: z.string(),
+  title_english: z.string(),
   status: z.string(),
   airing: z.boolean(),
   synopsis: z.string(),
@@ -48,6 +49,10 @@ export const animeListSchema = z.object({
       per_page: z.number(),
     }),
   }),
+})
+
+export const animeDetailSchema = z.object({
+  data: animeSchema,
 })
 
 export type ImageSizes = z.infer<typeof animeSchema>['images']
