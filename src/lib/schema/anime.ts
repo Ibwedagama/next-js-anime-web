@@ -49,3 +49,5 @@ export const animeListSchema = z.object({
     }),
   }),
 })
+
+export type AnimeList = z.infer<typeof animeListSchema>
