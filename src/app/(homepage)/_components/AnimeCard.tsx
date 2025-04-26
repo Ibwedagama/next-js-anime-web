@@ -12,9 +12,9 @@ function AnimeCard({ id, title, thumbnails }: Props) {
   const slug = slugify(title)
 
   return (
-    <Link href={`/${id}/${slug}`}>
+    <Link href={`anime/${id}/${slug}`}>
       <article className='group'>
-        <div className='w-full aspect-[9/16] rounded-2xl overflow-clip'>
+        <div className='w-full aspect-[2/3] rounded-2xl overflow-clip'>
           <img
             src={thumbnails.webp.image_url}
             srcSet={`
@@ -26,7 +26,7 @@ function AnimeCard({ id, title, thumbnails }: Props) {
             width={304}
             height={541}
             loading='lazy'
-            className='w-full h-full object-cover group-hover:scale-110 transition-transform ease-out duration-200'
+            className='w-full h-full object-fit group-hover:scale-110 transition-transform ease-out duration-200'
           />
         </div>
         <h2 className='text-lg text-center text-foreground font-bold line-clamp-2 mt-4'>
