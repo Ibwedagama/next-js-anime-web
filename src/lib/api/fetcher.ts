@@ -60,10 +60,19 @@ export async function fetchJson<T>(
       message: json.message ?? null,
       status: response.status,
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return {
+        data: null,
+        error: `[FETCH ERROR] ${error.message}`,
+        message: null,
+        status: 500,
+      }
+    }
+
     return {
       data: null,
-      error: `[FETCH ERROR] ${error.message}`,
+      error: '[FETCH ERROR] An unknown error occurred.',
       message: null,
       status: 500,
     }
