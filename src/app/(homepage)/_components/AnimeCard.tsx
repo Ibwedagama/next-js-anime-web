@@ -37,7 +37,7 @@ function AnimeCard({ id, title, thumbnails, type, status, episodes }: Props) {
             className='z-40 absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-b from-transparent 
             to-background flex items-end justify-center p-4 transition-all ease-out duration-200'
           >
-            <p className='text-center text-sm flex gap-x-2 mb-2'>
+            <p className='text-center text-sm flex gap-x-2 mb-2 opacity-0 sm:opacity-100'>
               <span>{type}</span>
               &#8226;
               <span className='text-green-500'>{status}</span>
