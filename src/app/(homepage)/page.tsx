@@ -14,6 +14,8 @@ export default async function Home({ searchParams }: Props) {
     q: search.q,
     page: search.page || 1,
     limit: search.limit || 12,
+    sort: 'asc',
+    order_by: 'popularity',
   }
 
   const { data: animeList } = await getAnimeList(options)
