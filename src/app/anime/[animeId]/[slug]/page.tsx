@@ -22,7 +22,7 @@ export default async function AnimeDetailPage({
   const title = animeDetail.data.title
   const titleEnglish = animeDetail.data.title_english ?? ''
   const images = animeDetail.data.images.webp
-  const synopsis = animeDetail.data.synopsis
+  const synopsis = animeDetail.data.synopsis ?? ''
   const score = animeDetail.data.score ?? 0
   const status = animeDetail.data.status ?? ''
   const type = animeDetail.data.type ?? ''

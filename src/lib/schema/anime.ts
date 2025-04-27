@@ -25,7 +25,7 @@ export const animeSchema = z.object({
     from: z.string().nullish(),
     to: z.string().nullish(),
   }),
-  synopsis: z.string(),
+  synopsis: z.string().nullish(),
   season: z.string().nullish(),
   year: z.number().nullish(),
   score: z.number().nullish(),

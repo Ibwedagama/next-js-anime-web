@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Menu } from 'lucide-react'
 import BaseContainer from './BaseContainer'
+import { Searchbar } from '../feature/search/Searchbar'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -32,6 +33,8 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+
+        <Searchbar></Searchbar>
 
         {/* Mobile Menu */}
         <div className='md:hidden'>
