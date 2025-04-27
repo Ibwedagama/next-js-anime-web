@@ -67,5 +67,28 @@ export const animeDetailSchema = z.object({
   data: animeSchema,
 })
 
+export const animeListQueryParamsSchema = z.object({
+  page: z.number().optional(),
+  limit: z.number().optional(),
+  q: z.string().optional(),
+  sort: z.enum(['desc', 'asc']).optional(),
+  order_by: z
+    .enum([
+      'mal_id',
+      'title',
+      'start_date',
+      'end_date',
+      'episodes',
+      'score',
+      'scored_by',
+      'rank',
+      'popularity',
+      'members',
+      'favorites',
+    ])
+    .optional(),
+})
+
 export type ImageSizes = z.infer<typeof animeSchema>['images']
 export type AnimeList = z.infer<typeof animeListSchema>
+export type AnimeListQueryParams = z.infer<typeof animeListQueryParamsSchema>
