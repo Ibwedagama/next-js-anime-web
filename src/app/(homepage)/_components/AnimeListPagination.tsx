@@ -37,7 +37,7 @@ function AnimeListPagination({ currentPage, lastPage }: Props) {
   }
 
   return (
-    <Pagination>
+    <Pagination data-testid='anime-list__pagination'>
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious href='#' onClick={handlePrevPage} />

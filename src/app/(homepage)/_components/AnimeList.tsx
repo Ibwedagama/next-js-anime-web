@@ -13,9 +13,12 @@ function HomeAnimeList({ animeList }: Props) {
 
   return (
     <>
-      <ul className='grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6 mb-6'>
+      <ul
+        data-testid='anime-list__container'
+        className='grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6 mb-6'
+      >
         {animeList.data.map((anime) => (
-          <li key={anime.mal_id}>
+          <li key={anime.mal_id} data-testid='anime-list__item'>
             <AnimeCard
               id={anime.mal_id}
               title={anime.title}
