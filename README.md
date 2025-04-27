@@ -49,7 +49,7 @@ Compiles and hot-reloads for development
 # Make sure all the credentials are filled in the .env file
 
 # you can run the app locally for development
-$ npm run serve
+$ npm run dev
 
 # or compiles and minifies for production
 $ npm run build
