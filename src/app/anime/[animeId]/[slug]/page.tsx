@@ -2,6 +2,7 @@ import BaseContainer from '@/components/common/BaseContainer'
 import { Button } from '@/components/ui/button'
 import { getAnimeById } from '@/lib/api/anime'
 import { Star, Play, Heart } from 'lucide-react'
+import AnimeDetailOverview from '../../_components/AnimeDetailOverview'
 
 export default async function AnimeDetailPage({
   params,
@@ -23,14 +24,14 @@ export default async function AnimeDetailPage({
   const images = animeDetail.data.images.webp
   const synopsis = animeDetail.data.synopsis
   const score = animeDetail.data.score
-  const status = animeDetail.data.status
-  const type = animeDetail.data.type
-  const episodes = animeDetail.data.episodes
+  const status = animeDetail.data.status ?? ''
+  const type = animeDetail.data.type ?? ''
+  const episodes = animeDetail.data.episodes ?? 0
   const genres =
     animeDetail.data.genres.length > 0
       ? animeDetail.data.genres.map((genre) => genre.name)
       : []
-  const season = animeDetail.data.season
+  const season = animeDetail.data.season ?? ''
   const studios =
     animeDetail.data.studios.length > 0
       ? animeDetail.data.studios.map((studio) => studio.name)
@@ -81,70 +82,15 @@ export default async function AnimeDetailPage({
             </div>
           </section>
 
-          <section className='grid grid-cols-1 lg:grid-cols-2 gap-6 bg-muted w-full h-full rounded-2xl p-4'>
-            <ul className='flex flex-col gap-y-4'>
-              <li>
-                <h2 className='text-xl font-bold text-muted-foreground'>
-                  Detail Overview
-                </h2>
-              </li>
-
-              <li className='grid grid-cols-[100px_1fr] items-center'>
-                <h3 className='text-sm font-bold text-muted-foreground'>
-                  TYPE
-                </h3>
-                <p className='text-sm text-muted-foreground'>{type}</p>
-              </li>
-
-              <li className='grid grid-cols-[100px_1fr] items-center'>
-                <h3 className='text-sm font-bold text-muted-foreground'>
-                  EPISODES
-                </h3>
-                <p className='text-sm text-muted-foreground'>{episodes}</p>
-              </li>
-
-              <li className='grid grid-cols-[100px_1fr] items-center'>
-                <h3 className='text-sm font-bold text-muted-foreground'>
-                  GENRES
-                </h3>
-                <p className='text-sm text-muted-foreground'>
-                  {genres.join(', ')}
-                </p>
-              </li>
-
-              <li className='grid grid-cols-[100px_1fr] items-center'>
-                <h3 className='text-sm font-bold text-muted-foreground'>
-                  STATUS
-                </h3>
-                <p className='text-sm text-muted-foreground'>{status}</p>
-              </li>
-
-              <li className='grid grid-cols-[100px_1fr] items-center'>
-                <h3 className='text-sm font-bold text-muted-foreground'>
-                  SEASON
-                </h3>
-                <p className='text-sm text-muted-foreground'>{season}</p>
-              </li>
-
-              <li className='grid grid-cols-[100px_1fr] items-center'>
-                <h3 className='text-sm font-bold text-muted-foreground'>
-                  STUDIOS
-                </h3>
-                <p className='text-sm text-muted-foreground'>
-                  {studios.join(', ')}
-                </p>
-              </li>
-            </ul>
-
-            <ul className='flex flex-col gap-y-8'>
-              <li>
-                <h3 className='text-xl font-bold text-muted-foreground mb-4'>
-                  Synopsis
-                </h3>
-                <p className='text-sm text-muted-foreground'>{synopsis}</p>
-              </li>
-            </ul>
-          </section>
+          <AnimeDetailOverview
+            type={type}
+            episodes={episodes}
+            genres={genres.join(', ')}
+            season={season}
+            status={status}
+            studios={studios.join(', ')}
+            synopsis={synopsis}
+          />
         </BaseContainer>
 
         <div
