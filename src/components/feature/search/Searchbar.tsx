@@ -66,14 +66,20 @@ export function Searchbar() {
     <>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button onClick={() => setOpen(true)}>
+          <Button
+            onClick={() => setOpen(true)}
+            data-testid='searchbar__trigger-button'
+          >
             Search
             <kbd className='pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100'>
               <span className='text-xs'>⌘</span>K
             </kbd>
           </Button>
         </DialogTrigger>
-        <DialogContent className='sm:min-w-[600px] lg:min-w-[720px]'>
+        <DialogContent
+          className='sm:min-w-[600px] lg:min-w-[720px]'
+          data-testid='searchbar__dialog-container'
+        >
           <DialogTitle className='text-lg'>
             For quick access:{' '}
             <kbd className='pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono font-medium text-muted-foreground text-sm opacity-100'>
