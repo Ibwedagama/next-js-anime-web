@@ -18,7 +18,7 @@ function AnimeDetailOverview({
   synopsis,
 }: Props) {
   return (
-    <section className='grid grid-cols-1 lg:grid-cols-2 gap-6 bg-muted w-full h-full rounded-2xl p-4'>
+    <section className='grid grid-cols-1 lg:grid-cols-2 gap-6 bg-muted w-full h-full rounded-2xl p-4 lg:p-6'>
       <ul className='flex flex-col gap-y-4'>
         <li>
           <h2 className='text-xl font-bold text-muted-foreground'>
@@ -48,7 +48,7 @@ function AnimeDetailOverview({
 
         <li className='grid grid-cols-[100px_1fr] items-center'>
           <h3 className='text-sm font-bold text-muted-foreground'>SEASON</h3>
-          <p className='text-sm text-muted-foreground'>{season}</p>
+          <p className='text-sm text-muted-foreground uppercase'>{season}</p>
         </li>
 
         <li className='grid grid-cols-[100px_1fr] items-center'>
