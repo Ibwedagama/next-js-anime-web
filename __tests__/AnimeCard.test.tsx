@@ -8,6 +8,9 @@ describe('Header', () => {
     id: animeData.mal_id,
     title: animeData.title,
     thumbnails: animeData.images,
+    type: animeData.type,
+    status: animeData.status,
+    episodes: animeData.episodes,
   }
 
   beforeEach(() => {

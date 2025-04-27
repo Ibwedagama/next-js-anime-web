@@ -24,6 +24,9 @@ function HomeAnimeList({ animeList }: Props) {
               id={anime.mal_id}
               title={anime.title}
               thumbnails={anime.images}
+              status={anime.status ?? ''}
+              episodes={anime.episodes ?? 0}
+              type={anime.type ?? ''}
             />
           </li>
         ))}

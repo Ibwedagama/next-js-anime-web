@@ -6,15 +6,18 @@ type Props = {
   id: number
   title: string
   thumbnails: ImageSizes
+  type: string
+  status: string
+  episodes: number
 }
 
-function AnimeCard({ id, title, thumbnails }: Props) {
+function AnimeCard({ id, title, thumbnails, type, status, episodes }: Props) {
   const slug = slugify(title)
 
   return (
     <Link href={`anime/${id}/${slug}`}>
       <article className='group' data-testid='anime-card__container'>
-        <div className='w-full aspect-[2/3] rounded-2xl overflow-clip'>
+        <div className='relative w-full aspect-[2/3] rounded-2xl overflow-clip'>
           <img
             data-testid='anime-card__thumbnail'
             src={thumbnails.webp.image_url}
@@ -29,6 +32,19 @@ function AnimeCard({ id, title, thumbnails }: Props) {
             loading='lazy'
             className='w-full h-full object-fit group-hover:scale-110 transition-transform ease-out duration-200'
           />
+
+          <div
+            className='absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-b from-transparent 
+            to-background flex items-end justify-center p-4 transition-all ease-out duration-200'
+          >
+            <p className='text-center text-sm flex gap-x-2 mb-2'>
+              <span>{type}</span>
+              &#8226;
+              <span className='text-green-500'>{status}</span>
+              &#8226;
+              <span>Ep {episodes}</span>
+            </p>
+          </div>
         </div>
         <h2
           data-testid='anime-card__title'
