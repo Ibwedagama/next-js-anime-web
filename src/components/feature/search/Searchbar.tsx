@@ -92,7 +92,7 @@ export function Searchbar() {
           </DialogTitle>
           <SearchInput onSearchChange={handleSearchChange} />
 
-          <section className='w-full sm:max-w-[600px] lg:max-w-[720px] max-h-[350px] overflow-y-auto'>
+          <section className='w-full sm:max-w-[600px] lg:max-w-[720px] max-h-[300px] overflow-y-auto'>
             {/* Loading State */}
             {isLoading ? <p>Loading...</p> : null}
 
