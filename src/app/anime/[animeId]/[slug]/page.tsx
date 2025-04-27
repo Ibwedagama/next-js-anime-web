@@ -24,6 +24,17 @@ export default async function AnimeDetailPage({
   const synopsis = animeDetail.data.synopsis
   const score = animeDetail.data.score
   const status = animeDetail.data.status
+  const type = animeDetail.data.type
+  const episodes = animeDetail.data.episodes
+  const genres =
+    animeDetail.data.genres.length > 0
+      ? animeDetail.data.genres.map((genre) => genre.name)
+      : []
+  const season = animeDetail.data.season
+  const studios =
+    animeDetail.data.studios.length > 0
+      ? animeDetail.data.studios.map((studio) => studio.name)
+      : []
 
   return (
     <main className='min-h-screen'>
@@ -70,23 +81,67 @@ export default async function AnimeDetailPage({
             </div>
           </section>
 
-          <section className='grid grid-cols-1 sm:grid-cols-2 bg-accent w-full h-full rounded-2xl p-4'>
+          <section className='grid grid-cols-1 lg:grid-cols-2 gap-6 bg-muted w-full h-full rounded-2xl p-4'>
             <ul className='flex flex-col gap-y-4'>
               <li>
-                <h2 className='text-xl font-bold text-accent-foreground mb-4'>
-                  Overview
+                <h2 className='text-xl font-bold text-muted-foreground'>
+                  Detail Overview
                 </h2>
+              </li>
 
-                {/* TODO: Add Overview Section */}
+              <li className='grid grid-cols-[100px_1fr] items-center'>
+                <h3 className='text-sm font-bold text-muted-foreground'>
+                  TYPE
+                </h3>
+                <p className='text-sm text-muted-foreground'>{type}</p>
+              </li>
+
+              <li className='grid grid-cols-[100px_1fr] items-center'>
+                <h3 className='text-sm font-bold text-muted-foreground'>
+                  EPISODES
+                </h3>
+                <p className='text-sm text-muted-foreground'>{episodes}</p>
+              </li>
+
+              <li className='grid grid-cols-[100px_1fr] items-center'>
+                <h3 className='text-sm font-bold text-muted-foreground'>
+                  GENRES
+                </h3>
+                <p className='text-sm text-muted-foreground'>
+                  {genres.join(', ')}
+                </p>
+              </li>
+
+              <li className='grid grid-cols-[100px_1fr] items-center'>
+                <h3 className='text-sm font-bold text-muted-foreground'>
+                  STATUS
+                </h3>
+                <p className='text-sm text-muted-foreground'>{status}</p>
+              </li>
+
+              <li className='grid grid-cols-[100px_1fr] items-center'>
+                <h3 className='text-sm font-bold text-muted-foreground'>
+                  SEASON
+                </h3>
+                <p className='text-sm text-muted-foreground'>{season}</p>
+              </li>
+
+              <li className='grid grid-cols-[100px_1fr] items-center'>
+                <h3 className='text-sm font-bold text-muted-foreground'>
+                  STUDIOS
+                </h3>
+                <p className='text-sm text-muted-foreground'>
+                  {studios.join(', ')}
+                </p>
               </li>
             </ul>
 
             <ul className='flex flex-col gap-y-8'>
               <li>
-                <h3 className='text-xl font-bold text-accent-foreground mb-4'>
+                <h3 className='text-xl font-bold text-muted-foreground mb-4'>
                   Synopsis
                 </h3>
-                <p className='text-sm text-accent-foreground'>{synopsis}</p>
+                <p className='text-sm text-muted-foreground'>{synopsis}</p>
               </li>
             </ul>
           </section>
