@@ -11,3 +11,29 @@ jest.mock('@tanstack/react-query', () => ({
     refetch: jest.fn(),
   }),
 }))
+
+// Mock useRouter hook globally
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+    prefetch: jest.fn(),
+    replace: jest.fn(),
+    refresh: jest.fn(),
+    back: jest.fn(),
+    forward: jest.fn(),
+  }),
+  useSearchParams: () => ({
+    get: jest.fn(),
+    entries: jest.fn(),
+    has: jest.fn(),
+    keys: jest.fn(),
+    values: jest.fn(),
+  }),
+  usePathname: () => ({
+    get: jest.fn(),
+    entries: jest.fn(),
+    has: jest.fn(),
+    keys: jest.fn(),
+    values: jest.fn(),
+  }),
+}))
