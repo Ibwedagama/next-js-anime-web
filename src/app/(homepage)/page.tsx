@@ -22,7 +22,7 @@ export default async function Home({ searchParams }: Props) {
     <main className='min-h-screen'>
       <BaseContainer className='py-8'>
         <h1 className='text-3xl font-bold text-foreground mb-8'>Anime List</h1>
-        <AnimeList initialData={animeList}></AnimeList>
+        <AnimeList animeList={animeList}></AnimeList>
       </BaseContainer>
     </main>
   )

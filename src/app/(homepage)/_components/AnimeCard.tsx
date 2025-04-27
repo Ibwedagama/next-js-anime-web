@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ImageSizes } from '@/lib/schema/anime'
-import slugify from '@/lib/utils'
+import { slugify } from '@/lib/utils'
 
 type Props = {
   id: number
