@@ -1,6 +1,6 @@
 type Props = {
   type: string
-  episodes: string
+  episodes: number
   genres: string
   status: string
   season: string
