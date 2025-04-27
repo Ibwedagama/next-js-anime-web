@@ -17,7 +17,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Next.js Anime App',
-  description: 'Built with Next.js + Shadcn ui + Tailwind CSS',
+  description:
+    'Built with Next.js + Shadcn UI + Tailwind CSS. Explore a wide collection of anime with our user-friendly platform.',
+  keywords: 'anime, next.js, shadcn UI, tailwind CSS',
+  robots: 'index, follow',
+  openGraph: {
+    title: 'Next.js Anime App',
+    description:
+      'Built with Next.js + Shadcn UI + Tailwind CSS. Explore a wide collection of anime with our user-friendly platform.',
+    url: 'https://next-js-anime-web.vercel.app',
+    siteName: 'Next.js Anime App',
+    type: 'website',
+  },
+  viewport: 'width=device-width, initial-scale=1.0',
 }
 
 export default function RootLayout({
