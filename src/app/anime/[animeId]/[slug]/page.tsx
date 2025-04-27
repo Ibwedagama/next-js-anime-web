@@ -40,7 +40,7 @@ export default async function AnimeDetailPage({
   return (
     <main className='min-h-screen'>
       <div className='relative'>
-        <BaseContainer className='relative z-30 pt-56 pb-8 flex flex-col gap-y-8'>
+        <BaseContainer className='relative z-30 pt-24 lg:pt-56 pb-8 flex flex-col gap-y-8'>
           <AnimeDetailHero
             title={title}
             titleEnglish={titleEnglish}
