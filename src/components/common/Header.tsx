@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import BaseContainer from './BaseContainer'
 import { Searchbar } from '../feature/search/Searchbar'
+import { Suspense } from 'react'
 
 export default function Header() {
   return (
@@ -17,7 +18,9 @@ export default function Header() {
         </Link>
 
         {/* Search */}
-        <Searchbar />
+        <Suspense>
+          <Searchbar />
+        </Suspense>
       </BaseContainer>
     </header>
   )

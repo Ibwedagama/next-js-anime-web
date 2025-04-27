@@ -1,6 +1,7 @@
 import { AnimeList } from '@/lib/schema/anime'
 import AnimeCard from './AnimeCard'
 import AnimeListPagination from './AnimeListPagination'
+import { Suspense } from 'react'
 
 type Props = {
   animeList: AnimeList | null
@@ -28,10 +29,12 @@ function HomeAnimeList({ animeList }: Props) {
         ))}
       </ul>
 
-      <AnimeListPagination
-        currentPage={animeList.pagination.current_page}
-        lastPage={animeList.pagination.last_visible_page}
-      />
+      <Suspense>
+        <AnimeListPagination
+          currentPage={animeList.pagination.current_page}
+          lastPage={animeList.pagination.last_visible_page}
+        />
+      </Suspense>
     </>
   )
 }
