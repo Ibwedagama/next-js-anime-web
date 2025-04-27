@@ -97,7 +97,7 @@ export function Searchbar() {
             {isLoading ? <p>Loading...</p> : null}
 
             {!isLoading && animeResults && animeResults.length > 0 ? (
-              <ul className='flex flex-col gap-y-4'>
+              <ul className='flex flex-col gap-y-2'>
                 {animeResults.map((result) => (
                   <SearchResult
                     key={result.mal_id}

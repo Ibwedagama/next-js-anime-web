@@ -20,7 +20,7 @@ function SearchResult({
   status,
 }: Props) {
   return (
-    <li>
+    <li className='cursor-pointer hover:bg-background p-2 mr-4 rounded-xl transition-colors ease-out duration-200'>
       <Link
         href={`/anime/${animeId}/${slugify(titleEnglish)}`}
         className='grid grid-cols-[60px_1fr] gap-x-4'
@@ -40,11 +40,11 @@ function SearchResult({
           <h2 className='text-sm font-bold text-foreground'>
             {titleEnglish || title}
           </h2>
-          <p className='flex text-sm items-center gap-x-2 text-foreground'>
+          <p className='flex text-sm items-center gap-x-1 text-foreground'>
             <Star size={14} />
             <span>{score}</span>
           </p>
-          <p className='flex items-center text-sm gap-x-2 text-foreground uppercase'>
+          <p className='flex items-center text-sm gap-x-2 text-accent capitalize mb-1'>
             {status}
           </p>
         </div>
