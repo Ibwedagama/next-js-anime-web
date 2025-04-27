@@ -1,36 +1,32 @@
-# Use official Node.js LTS image
+# Install dependencies only when needed
 FROM node:20-alpine AS deps
-
-# Set working directory
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json* pnpm-lock.yaml* yarn.lock* ./
+# Install app dependencies
+COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy app files
+# Build app
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build the app
+# Build Next.js app
 RUN npm run build
 
 # Production image
 FROM node:20-alpine AS runner
 WORKDIR /app
 
-# Don't run install scripts
-ENV NODE_ENV=production
-
 # Only copy necessary files
-COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/package.json ./
+COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/src ./src
 
-# Start the server
-CMD ["npm", "run", "start"]
+ENV NODE_ENV production
+EXPOSE 3000
+
+CMD ["npm", "start"]
