@@ -24,6 +24,7 @@ function AnimeListPagination({ currentPage, lastPage }: Props) {
     const params = new URLSearchParams(search.toString())
     params.set('page', page.toString())
     router.push(`?${params.toString()}`)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   function handlePrevPage(e: React.MouseEvent<HTMLAnchorElement>) {
