@@ -13,9 +13,10 @@ function AnimeCard({ id, title, thumbnails }: Props) {
 
   return (
     <Link href={`anime/${id}/${slug}`}>
-      <article className='group'>
+      <article className='group' data-testid='anime-card__container'>
         <div className='w-full aspect-[2/3] rounded-2xl overflow-clip'>
           <img
+            data-testid='anime-card__thumbnail'
             src={thumbnails.webp.image_url}
             srcSet={`
             ${thumbnails.webp.image_url} 480w,
@@ -29,7 +30,10 @@ function AnimeCard({ id, title, thumbnails }: Props) {
             className='w-full h-full object-fit group-hover:scale-110 transition-transform ease-out duration-200'
           />
         </div>
-        <h2 className='text-lg text-center text-foreground font-bold line-clamp-2 mt-4'>
+        <h2
+          data-testid='anime-card__title'
+          className='text-lg text-center text-foreground font-bold line-clamp-2 mt-4'
+        >
           {title}
         </h2>
       </article>

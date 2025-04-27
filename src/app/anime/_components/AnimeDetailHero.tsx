@@ -1,5 +1,4 @@
-import { Star, Play } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Star } from 'lucide-react'
 import AnimeTrailerPlayer from './AnimeTrailerPlayer'
 
 type Props = {
