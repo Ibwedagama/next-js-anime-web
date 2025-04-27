@@ -40,7 +40,11 @@ function AnimeListPagination({ currentPage, lastPage }: Props) {
     <Pagination data-testid='anime-list__pagination'>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href='#' onClick={handlePrevPage} />
+          <PaginationPrevious
+            href='#'
+            onClick={handlePrevPage}
+            data-testid='anime-list__pagination__prev-button'
+          />
         </PaginationItem>
 
         {/* Pagination Pages only show 4 pages at a time */}
@@ -51,7 +55,10 @@ function AnimeListPagination({ currentPage, lastPage }: Props) {
           if (page < 1 || page > lastPage) return null
 
           return (
-            <PaginationItem key={page}>
+            <PaginationItem
+              key={page}
+              data-testid='anime-list__pagination__page-chunk'
+            >
               <PaginationLink
                 href='#'
                 isActive={currentPage === page}
@@ -71,7 +78,11 @@ function AnimeListPagination({ currentPage, lastPage }: Props) {
         </PaginationItem>
 
         <PaginationItem>
-          <PaginationNext href='#' onClick={handleNextPage} />
+          <PaginationNext
+            href='#'
+            onClick={handleNextPage}
+            data-testid='anime-list__pagination__next-button'
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
