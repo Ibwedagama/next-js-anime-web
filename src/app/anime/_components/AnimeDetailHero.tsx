@@ -1,5 +1,6 @@
 import { Star, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import AnimeTrailerPlayer from './AnimeTrailerPlayer'
 
 type Props = {
   title: string
@@ -7,9 +8,17 @@ type Props = {
   image: string
   score: number
   status: string
+  videoUrl: string
 }
 
-function AnimeDetailHero({ title, titleEnglish, image, score, status }: Props) {
+function AnimeDetailHero({
+  title,
+  titleEnglish,
+  image,
+  score,
+  status,
+  videoUrl,
+}: Props) {
   return (
     <section className='grid grid-cols-1 sm:grid-cols-[200px_1fr] items-end gap-x-6'>
       <div className='w-[200px] h-[300px] rounded-lg overflow-clip'>
@@ -41,9 +50,10 @@ function AnimeDetailHero({ title, titleEnglish, image, score, status }: Props) {
         </div>
 
         <div className='flex gap-x-4'>
-          <Button className='w-fit' variant={'outline'}>
-            <Play /> Watch Trailer
-          </Button>
+          <AnimeTrailerPlayer
+            title={titleEnglish || title}
+            videoUrl={videoUrl}
+          />
         </div>
       </div>
     </section>

@@ -36,6 +36,7 @@ export default async function AnimeDetailPage({
     animeDetail.data.studios.length > 0
       ? animeDetail.data.studios.map((studio) => studio.name)
       : []
+  const videoUrl = animeDetail.data.trailer.youtube_id ?? ''
 
   return (
     <main className='min-h-screen'>
@@ -47,6 +48,7 @@ export default async function AnimeDetailPage({
             image={images.image_url}
             score={score}
             status={status}
+            videoUrl={videoUrl}
           />
 
           <AnimeDetailOverview
