@@ -3,13 +3,20 @@ import { getAnimeList } from '@/lib/api/anime'
 import AnimeList from './_components/AnimeList'
 import { AnimeListQueryParams } from '@/lib/schema/anime'
 
-export default async function Home() {
-  const queryParams: AnimeListQueryParams = {
-    page: 1,
-    limit: 12,
+type Props = {
+  searchParams: Promise<AnimeListQueryParams>
+}
+
+export default async function Home({ searchParams }: Props) {
+  const search = await searchParams
+
+  const options: AnimeListQueryParams = {
+    q: search.q,
+    page: search.page || 1,
+    limit: search.limit || 12,
   }
 
-  const { data: animeList, error, status } = await getAnimeList(queryParams)
+  const { data: animeList } = await getAnimeList(options)
 
   return (
     <main className='min-h-screen'>
