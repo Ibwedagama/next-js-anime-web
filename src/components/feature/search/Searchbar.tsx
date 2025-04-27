@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '../../ui/button'
 import { getAnimeList } from '@/lib/api/anime'
 import { useDebounce } from '@/hooks/useDebounceQuery'
