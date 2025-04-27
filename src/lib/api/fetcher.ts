@@ -61,7 +61,6 @@ export async function fetchJson<T>(
       status: response.status,
     }
   } catch (error: any) {
-    console.error(error)
     return {
       data: null,
       error: `[FETCH ERROR] ${error.message}`,
