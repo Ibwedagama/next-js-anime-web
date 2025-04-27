@@ -68,6 +68,7 @@ export default async function AnimeDetailPage({
           style={{ backgroundImage: `url(${images.large_image_url})` }}
         />
         <div className='absolute inset-0 h-[410px] lg:h-1/2 bg-gradient-to-b from-transparent via-background/30 lg:via-background/15 to-background' />
+        <div className='absolute inset-0 h-[410px] lg:h-1/2 bg-background opacity-75' />
       </div>
     </main>
   )
